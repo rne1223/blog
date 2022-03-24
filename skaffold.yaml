@@ -1,0 +1,32 @@
+apiVersion: skaffold/v2beta4
+kind: Config
+metadata:
+  name: blog-skaffold 
+build:
+  artifacts:
+  - image: rne1223/coming-soon
+    context: ./frontend
+    docker:
+      dockerfile: Dockerfile
+  #   buildpack:
+  #     builder: "paketobuildpacks/builder:base"
+  #     buildpacks: 
+  #     - "paketo-buildpacks/nodejs"
+  #     dependencies: # Folders that will trigger a build
+  #       paths:
+  #       - src/** 
+    #   env:
+    #   - GO_GIT_CRED__HTTPS__GITHUB__COM=<a cli token>
+deploy:
+  helm:
+   releases:
+   - name: skaffold 
+     chartPath: ./kube-manifests/frontend
+     namespace: test 
+     artifactOverrides:
+       image: rne1223/coming-soon
+     imageStrategy:
+       helm: {}
+     valuesFiles:
+     - ./kube-manifests/frontend/values.yaml
+

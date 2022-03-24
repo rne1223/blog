@@ -1,0 +1,17 @@
+## Traefik Ingress Resouce to connect to pod from web
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ include "frontend.fullname" . }}
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: {{ .Values.ingressroute.match }} 
+    services:
+    - name: {{ include "frontend.fullname" . }} 
+      port: {{ .Values.service.port }} 
+    # middlewares:
+    # - name: dashboard-auth
+    # - name: dashboard-rewrite
