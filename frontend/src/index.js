@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Preloader from "./components/Preloader/Preloader";
-import Timer from "./components/Countdown/Timer";
-import Optin from "./components/Optin/Optin";
+// import Timer from "./components/Countdown/Timer";
+// import Optin from "./components/Optin/Optin";
 
 import "./styles.css";
 
@@ -13,7 +13,9 @@ function App() {
         <h1>
           Website
           <br />
-          Coming Soon
+          Coming Soon.
+          <br />
+          Thank you for your patience.
         </h1>
         <Preloader />
       </div>
