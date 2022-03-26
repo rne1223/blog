@@ -27,7 +27,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            rne1223/techtrends
+            rne1223/comming-soon
             ghcr.io/rne1223/techtrends
           # generate Docker tags based on the following events/attributes
           tags: |
@@ -50,13 +50,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Login to GHCR
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      # -
+      #   name: Login to GHCR
+      #   uses: docker/login-action@v1
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.repository_owner }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build and push
         uses: docker/build-push-action@v2
