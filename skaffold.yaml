@@ -29,4 +29,3 @@ deploy:
        helm: {}
      valuesFiles:
      - ./kube-manifests/frontend/values.yaml
-

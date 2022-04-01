@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: frontend-tls-certificate
+spec:
+  dnsNames: 
+  - 'rtrmotion.com'
+  subject:
+    organizations:
+    - RTRmotion
+  commonName: rtrmotion.com
+  issuerRef:
+    kind: ClusterIssuer
+    name: production-letsencrypt-clusterissuer
+  secretName: frontend-crt
