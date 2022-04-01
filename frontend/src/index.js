@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Preloader from "./components/Preloader/Preloader";
+// import Preloader from "./components/Preloader/Preloader";
 // import Timer from "./components/Countdown/Timer";
 // import Optin from "./components/Optin/Optin";
 
@@ -17,7 +17,7 @@ function App() {
           <br />
           Thank you for your patience.
         </h1>
-        <Preloader />
+        {/* <Preloader /> */}
       </div>
     </div>
   );
