@@ -15,8 +15,8 @@ build:
   #     dependencies: # Folders that will trigger a build
   #       paths:
   #       - src/** 
-    #   env:
-    #   - GO_GIT_CRED__HTTPS__GITHUB__COM=<a cli token>
+  #     env:
+  #     - GO_GIT_CRED__HTTPS__GITHUB__COM=<a cli token>
 deploy:
   helm:
    releases:

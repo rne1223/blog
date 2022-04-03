@@ -28,15 +28,10 @@ jobs:
           # list of Docker images to use as base name for tags
           images: |
             rne1223/coming-soon
-            ghcr.io/rne1223/comming-soon
+            ghcr.io/rne1223/coming-soon
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+            type=raw,value=latest
             type=sha
       -
         name: Set up QEMU
