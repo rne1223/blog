@@ -28,4 +28,4 @@ deploy:
      imageStrategy:
        helm: {}
      valuesFiles:
-     - ./kube-manifests/frontend/values.yaml
+     - ./kube-manifests/frontend/local-values.yaml

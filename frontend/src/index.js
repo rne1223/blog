@@ -14,10 +14,7 @@ function App() {
           Website
           <br />
           Coming Soon.
-          <br />
-          Thank you for your patience.
         </h1>
-        {/* <Preloader /> */}
       </div>
     </div>
   );
