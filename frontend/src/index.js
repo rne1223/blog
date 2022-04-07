@@ -11,9 +11,11 @@ function App() {
     <div className="App">
       <div className="container">
         <h1>
-          Website
+          Website Coming Soon
           <br />
-          Coming Soon
+          Thank you
+          <br />
+          for your patience.
         </h1>
       </div>
     </div>
