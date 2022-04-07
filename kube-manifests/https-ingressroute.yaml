@@ -8,7 +8,7 @@ spec:
   - websecure
   routes:
   - kind: Rule
-    match: {{ .Values.ingressroute.match }} 
+    match: {{ .Values.ingressroute.host }} 
     services:
     - name: {{ include "frontend.fullname" . }} 
       port: {{ .Values.service.port }} 

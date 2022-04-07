@@ -85,4 +85,4 @@ affinity: {}
 
 ## IngressRoute Resource Values a replacement for ingress
 ingressroute:
-  match: Host("rtrmotion.com") 
+  host: Host("rtrmotion.com") 

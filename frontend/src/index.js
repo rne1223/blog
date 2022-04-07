@@ -13,7 +13,7 @@ function App() {
         <h1>
           Website
           <br />
-          Coming Soon.
+          Coming Soon. Here is a small test.
         </h1>
       </div>
     </div>
