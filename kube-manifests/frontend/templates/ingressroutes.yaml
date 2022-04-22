@@ -1,0 +1,41 @@
+## Traefik HTTP IngressRoute Resources
+{{- if .Values.IngressRoute.enable }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: http-{{ .Values.IngressRoute.url }}
+spec:
+  entryPoints:
+  - web
+  routes:
+  - kind: Rule
+    match: Host({{ .Values.IngressRoute.url | quote }})
+    services:
+    - name: {{ include "frontend.fullname" . }}
+      port: {{ .Values.service.port }} 
+    middlewares:
+    {{- range $name, $middleware := .Values.IngressRoute.httpMiddleware }}
+    - name: {{ $name }}
+    {{- end }}
+---
+## Traefik HTTPS IngressRoute Resources
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: https-{{ .Values.IngressRoute.url }}
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host({{ .Values.IngressRoute.url | quote }})
+    services:
+    - name: {{ include "frontend.fullname" . }}
+      port: {{ .Values.service.port }} 
+    middlewares:
+    {{- range $name, $middleware := .Values.IngressRoute.httpsMiddleware }}
+    - name: {{ $name }}
+    {{- end }}
+  tls:
+    secretName: {{ include "frontend.name" .}}-crt
+{{- end }}

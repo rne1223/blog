@@ -1,0 +1,10 @@
+{{- range $name, $middleware := .Values.IngressRoute.httpMiddleware }}
+---
+## IngressRoute Middleware Resource
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $name }} 
+spec: 
+{{- toYaml $middleware | nindent 2 }}
+{{- end }} 

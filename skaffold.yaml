@@ -5,7 +5,7 @@ metadata:
 build:
   artifacts:
   - image: rne1223/coming-soon
-    context: ./frontend
+    context: ./src/frontend
     docker:
       dockerfile: Dockerfile
   #   buildpack:
@@ -22,7 +22,7 @@ deploy:
    releases:
    - name: skaffold 
      chartPath: ./kube-manifests/frontend
-     namespace: test 
+     namespace: blog 
      artifactOverrides:
        image: rne1223/coming-soon
      imageStrategy:

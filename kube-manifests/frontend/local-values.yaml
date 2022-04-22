@@ -14,7 +14,7 @@ containerPort: 3000
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: true
+  create: false 
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
@@ -81,5 +81,16 @@ affinity: {}
 
 
 ## IngressRoute Resource Values a replacement for ingress
-ingressroute:
-  host: Host("local-blog.com") 
+# Things that will change are the hostname and certificate
+# The middleware will be the same for local and server
+# I want to define the local host
+IngressRoute:
+  enable: true 
+  selfSigned: true 
+  url: "dev.rtrmotion.com"
+  email: "email@hello.com" # will only be use if selfSigned is false
+  httpMiddleware:
+    scheme:
+      redirectScheme:
+        scheme: https
+        permanent: true

@@ -84,5 +84,16 @@ affinity: {}
 
 
 ## IngressRoute Resource Values a replacement for ingress
-ingressroute:
-  host: Host("rtrmotion.com") 
+IngressRoute:
+  enable: true 
+  selfSigned: true 
+  url: "rtrmotion.com"
+  connect:
+    service: nginx 
+    port: 8080 
+  email: "email@hello.com" # will only be use if selfSigned is false
+  httpMiddleware:
+    scheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
