@@ -12,8 +12,8 @@ spec:
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
     email: {{ .Values.IngressRoute.email }}
-    server: https://acme-staging-v02.api.letsencrypt.org/directory # use this url for stagging
-    # server: https://acme-v02.api.letsencrypt.org/directory # use this url for production
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory # use this url for stagging
+    server: https://acme-v02.api.letsencrypt.org/directory # use this url for production
     privateKeySecretRef:
       # Secret resource that will be used to store the account's private key.
       name: letsencrypt-secret 
@@ -21,11 +21,11 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: traefik
-          # ingressTemplate:
-          #   metadata:
-          #     annotations:
-          #       "traefik.ingress.kubernetes.io/frontend-entry-points": "web"
+          ingressTemplate:
+            metadata:
+              annotations:
+                "traefik.ingress.kubernetes.io/frontend-entry-points": "web"
+          # class: traefik
 {{ else }}
   selfSigned: {}
 {{- end }}
@@ -39,6 +39,7 @@ metadata:
 spec:
   dnsNames: 
   - {{ .Values.IngressRoute.url }}
+  - www.{{ .Values.IngressRoute.url }}
   commonName: {{ .Values.IngressRoute.url }}
   issuerRef:
     kind: Issuer

@@ -16,4 +16,5 @@ spec:
     repoURL: https://github.com/rne1223/blog
     targetRevision: HEAD
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
